@@ -1,0 +1,37 @@
+---
+title: Key Considerations when developing Delegation of Authority (Manual of Authority)
+author: Ahsan Iftikhar
+date: '2020-08-25'
+slug: key-considerations-when-developing-delegation-of-authority-manual-of-authority
+categories:
+  - R
+tags:
+  - Corporate Governance
+  - Delegation of Authority
+  - Manual of Authority
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-08-25T05:19:18+04:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+What activities should become part of delegation of authority and what should be the purview of procedures is a key question that is encountered by anyone who develops delegation of authority. Based on my experience, following are the key set of rules that should be considered:
+
+## Activities crossing functional and departmental boundaries
+
+Any significant activity which crosses departmental or functional boundaries should be stated in the manual of authority.
+
+On the contract any activity (no matter how much significant) which does not cross departmental or functional boundaries should be managed/regulated through procedures.
+
+## Acceptance & rejection rule
+
+The activity should represent significant activity which can be accepted or rejected. This implies that procedural activities which are routine in nature and does not require explicit approval should not included in the delegation of authority.
+
+## Only key activities having significant operational and financial impact
+
+Although determination of significance is a matter of judgment, however, effort should be made to only include the activities which materially impact the operations and have significant financial impact.

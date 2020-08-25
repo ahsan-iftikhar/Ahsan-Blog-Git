@@ -1,63 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R | Academic</title>
+    <title>R | Ahsan Iftikhar</title>
     <link>/category/r/</link>
       <atom:link href="/category/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © 2020 Ahsan Iftikhar Qureshi. All rights reserved.</copyright><lastBuildDate>Tue, 25 Aug 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>/media/Ahsan_Image.jpg</url>
       <title>R</title>
       <link>/category/r/</link>
     </image>
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <title>Key Considerations when developing Delegation of Authority (Manual of Authority)</title>
+      <link>/post/key-considerations-when-developing-delegation-of-authority-manual-of-authority/</link>
+      <pubDate>Tue, 25 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>/post/key-considerations-when-developing-delegation-of-authority-manual-of-authority/</guid>
       <description>
 
 
-&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;R Markdown&lt;/h1&gt;
-&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &amp;lt;- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;What activities should become part of delegation of authority and what should be the purview of procedures is a key question that is encountered by anyone who develops delegation of authority. Based on my experience, following are the key set of rules that should be considered:&lt;/p&gt;
+&lt;div id=&#34;activities-crossing-functional-and-departmental-boundaries&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Activities crossing functional and departmental boundaries&lt;/h2&gt;
+&lt;p&gt;Any significant activity which crosses departmental or functional boundaries should be stated in the manual of authority.&lt;/p&gt;
+&lt;p&gt;On the contract any activity (no matter how much significant) which does not cross departmental or functional boundaries should be managed/regulated through procedures.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Including Plots&lt;/h1&gt;
-&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
-  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
-  init.angle = -50, border = NA
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: A fancy pie chart.
-&lt;/p&gt;
+&lt;div id=&#34;acceptance-rejection-rule&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Acceptance &amp;amp; rejection rule&lt;/h2&gt;
+&lt;p&gt;The activity should represent significant activity which can be accepted or rejected. This implies that procedural activities which are routine in nature and does not require explicit approval should not included in the delegation of authority.&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;only-key-activities-having-significant-operational-and-financial-impact&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Only key activities having significant operational and financial impact&lt;/h2&gt;
+&lt;p&gt;Although determination of significance is a matter of judgment, however, effort should be made to only include the activities which materially impact the operations and have significant financial impact.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

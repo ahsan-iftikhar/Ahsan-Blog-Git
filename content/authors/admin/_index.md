@@ -4,44 +4,56 @@ authors:
 bio: My research interests include distributed robotics, mobile computing and programmable matter.
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
-email: ""
+  - course: Certified Tidyverse Instructor
+    institution: RStudio
+    year: 2020
+  - course: Bootcamp, Data Scientist with R Track
+    institution: DataCamp
+    year: 2017-2018
+  - course: MS in Business Administration
+    institution: Virtual University of Pakistan
+    year: 2014-2019
+  - course: M.Com.  
+    institution: Higher Education Commission (HEC) of Pakistan Equivalence
+    year: 2013
+  - course: FCCA  
+    institution: from Association of Chartered Certified Accountants (ACCA)
+    year: 2004-2008
+email: "ahsan.iftikhar.qureshi@gmail.com"
 interests:
+- Business Analytics
+- Audit Analytics
+- Data Visualization
 - Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Corporate Governance
+- Public Speaking
 organizations:
-- name: Stanford University
-  url: ""
-role: Professor of Artificial Intelligence
+- name: Protiviti
+  url: "https://www.protiviti.com/OM-en"
+role: Manager, Risk Advisory Services
 social:
 - icon: envelope
   icon_pack: fas
   link: '#contact'
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/GeorgeCushen
+  link: https://twitter.com/Ahsan_Iftikhar
 - icon: google-scholar
   icon_pack: ai
   link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/ahsan-iftikhar
 superuser: true
-title: Nelson Bighetti
+title: Ahsan Iftikhar Qureshi
 user_groups:
 - Researchers
 - Visitors
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Ahsan works as a risk advisory consultant and internal auditor for Protiviti Middle East. My key area of focus is audit and business analytics. I use R and wide array of R packages for data cleaning and validation and to create dynamic, reproducible and interactive reports/dashboards and data visualizations. I love exploring how R and other technologies  can improve the analytics processes for individual workflows and corporations.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+In addition, to audit and analytics Ahsan is proficient in corporate governance, business process design and re-engineering, supply chain management, financial & management reporting and IT reviews.
+
+His international experience spans across Ukraine, Russia, Tunisia, Saudi Arabia, Oman, Egypt, Kuwait, UAE and Pakistan.
+

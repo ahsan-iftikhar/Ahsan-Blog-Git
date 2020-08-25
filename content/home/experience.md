@@ -18,27 +18,78 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
-  title = "CEO"
-  company = "GenCoin"
-  company_url = ""
-  location = "California"
-  date_start = "2017-01-01"
+  title = "Manager"
+  company = "Protiviti (Member Firm) Middle East Limited"
+  company_url = "https://www.protiviti.com/OM-en"
+  location = "Muscat, Oman"
+  date_start = "2017-04-01"
   date_end = ""
   description = """
   Responsibilities include:
   
-  * Analysing
-  * Modelling
-  * Deploying
+  * Audit Analytics
+  * Business Analytics
+  * Corporate Governance
+  * Enterprise Risk Management
+  * Valuations
+  * Internal Audit
+  * Business Process Reviews
+  * Spend Analytics (Supply Chain)
+  * Forensic Reviews
+  * Project Management
   """
 
 [[experience]]
-  title = "Professor"
-  company = "University X"
-  company_url = ""
-  location = "California"
-  date_start = "2016-01-01"
-  date_end = "2016-12-31"
-  description = """Taught electronic engineering and researched semiconductor physics."""
+  title = "Assistant Manager"
+  company = "Protiviti (Member Firm) Middle East Limited"
+  company_url = "https://www.protiviti.com/OM-en"
+  location = "Muscat, Oman"
+  date_start = "2014-12-01"
+  date_end = "2017-03-31"
+  description = """Risk Advisory & Internal Audit Services"""
 
+[[experience]]
+  title = "Assistant Manager"
+  company = "Protiviti (Member Firm) Middle East Limited"
+  company_url = "https://www.protiviti.com/KW-en"
+  location = "Kuwait City, Kuwait"
+  date_start = "2013-10-01"
+  date_end = "2014-11-30"
+  description = """Risk Advisory & Internal Audit Services"""
+
+[[experience]]
+  title = "Senior Consultant"
+  company = "Protiviti (Member Firm) Middle East Limited"
+  company_url = "https://www.protiviti.com/KW-en"
+  location = "Kuwait City, Kuwait"
+  date_start = "2011-10-01"
+  date_end = "2013-09-30"
+  description = """Risk Advisory & Internal Audit Services"""
+  
+[[experience]]
+  title = "Consultant"
+  company = "Protiviti (Member Firm) Middle East Limited"
+  company_url = "https://www.protiviti.com/KW-en"
+  location = "Kuwait City, Kuwait"
+  date_start = "2011-04-01"
+  date_end = "2011-09-30"
+  description = """Risk Advisory & Internal Audit Services"""  
+
+[[experience]]
+  title = "Senior Auditor"
+  company = "Grant Thornton International - Anjum Asim Shahid Rehman (Chartered Accountants)"
+  company_url = "https://www.grantthornton.pk/"
+  location = "Pakistan, Lahore"
+  date_start = "2007-12-01"
+  date_end = "2010-12-31"
+  description = """Statutory Audit, Business Evaluation and Consulting Services"""  
+
+[[experience]]
+  title = "Auditor"
+  company = "Deloitte - M. Yousuf Adil Saleem & Co. (Chartered Accountants)"
+  company_url = "https://www2.deloitte.com/pk/en.html#"
+  location = "Pakistan, Lahore"
+  date_start = "2003-01-01"
+  date_end = "2004-12-31"
+  description = """Statutory Audit & Consulting Services"""    
 +++
