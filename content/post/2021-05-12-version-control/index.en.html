@@ -1,0 +1,400 @@
+---
+title: Version Control using Git & Github
+author: Ahsan Iftikhar
+date: '2021-05-12'
+slug: version-control
+categories: []
+tags:
+  - git
+  - github
+  - svn
+  - version control
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-05-12T13:51:00+04:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="{{< blogdown/postref >}}index.en_files/header-attrs/header-attrs.js"></script>
+
+
+<div class="figure">
+<img src="versioncontrol_mindmap_with_license.png" alt="" />
+<p class="caption">Mind Map - Version Control</p>
+</div>
+<hr />
+<div id="part-1---what-why-when" class="section level1">
+<h1>Part 1 - What? Why? When?</h1>
+<p>This blog is aimed at novices who are taking their first plunge in understanding and applying version control using git and github. It is suggested to use the mind map and then cover one to two parts in a day will applying all the concepts and terminal commands learnt in this.</p>
+<p>Be considerate that version control and effective use of terminal will take some time and be best wishes and efforts to made it easier.</p>
+<div id="basic-concept" class="section level2">
+<h2>Basic Concept</h2>
+<p>If you can relate to the following scenario then <em>git and github might not be required right now</em>.</p>
+<blockquote>
+<p>An initial version of a document has been prepared and emailed to a peer/senior for review. You will not be making concurrent changes to the same version. After it hasb been reviewed a marked up version is received with changes, which are either are accepted, rejected or updated. This is simplest form of review and collaboration we experience and <em>tools like MS Words track changes will be sufficient for your use case</em>.</p>
+</blockquote>
+<p>If you can relate to the following scenario then git and github is for you.</p>
+<blockquote>
+<p>A document is shared with multiple peer for review, wherein each of reviewers will be making updates, giving comments, refactoring the code and document. During this process you will also be making concurrent changes in the same document. You want a mechanism to track all such changes and make the updates in the final document.</p>
+</blockquote>
+<p>Continue reading the rest of the blog if you resonated with the above.</p>
+</div>
+<div id="benefits" class="section level2">
+<h2>Benefits</h2>
+<p>Git and github specifically addresses the challenge of multiple contributors working on the same project. Key benefits to be achieved are stated below.</p>
+<ul>
+<li>Ability to track changes and updates by different contributor and reviewers.</li>
+<li>Allowing roll back to prior versions.</li>
+<li>For all commits/updates, documentation, via explanatory messages is enforced for future reference. This provide better context to others involved in the project.</li>
+<li>Git automatically notifies when the current work conflicts with someone else’s, so it’s harder (but not impossible) to accidentally overwrite work.</li>
+</ul>
+</div>
+<div id="typical-use-cases" class="section level2">
+<h2>Typical use cases</h2>
+<p>Larger projects, especially text based code repositories and plain text document are focused use cases. Use cases basically stem from the challenges version control aims to address and somewhat reflective of the benefits stated above.</p>
+<ul>
+<li>Collaborative projects with multiple contributors.</li>
+<li>Open source projects.</li>
+<li>Formal tracking of different version during numerous stages of development.</li>
+<li>Ability to revert of earlier version, should things don’t work out as planned.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="part-2---framework-nomenclature" class="section level1">
+<h1>Part 2 - Framework &amp; Nomenclature</h1>
+<p>After getting an understanding of what git is and what problem it addresses, it is important to get an overview of the framework and key terminologies that is used for git. These specific terminology will feature time and again. Following, definitions aims to communicate an intuitive essence of the concept, which may not be exactly match the official explanation from Git, but the aim is get the primary message across.</p>
+<p><strong>1. Repository</strong> - It is simply the project or folder where all the related directories and files are organized.</p>
+<p>Other than the project files and folders, repository also contains an additional folder ‘.git’. This folder is organized in a particular way by git and should not be changed manually.</p>
+<p><strong>2. Staged</strong> - A temporary area where the files are placed before formally recording (or committing) a snap shot of the file/data.</p>
+<p><strong>3. Commit</strong> - An area to be considered as a vault where the files are saved and tracked for version control.
+On a technical level commit contains the <em>metadata</em> about the author, time of the commit and the message to define what updates where made in the commit.</p>
+<p><strong>4. Tree</strong> - Cascading relationships of all the files being tracked for version control. It is called as a tree structure since the file have a sort of linked relationship. with each previous version and this is best demonstrated via a tree structure.</p>
+<p>On a technical level, tree tracks the <em>names and locations in the repository</em> and when a commit happened.</p>
+<p><strong>5. Blob</strong> - Blob is a compressed snapshot of the contents of the file. A blob is maintained for each of the files listed in the tree structure.</p>
+<p><strong>6. Hash</strong> - Hash is unique identifier for each commit. This hash is normally generated as a <em>40-character hexadecimal string</em> like 7c35a3ce607a14953f070f0f83b5d74c2296ef93, but most of the time, only first 6 or 8 characters are sufficient to identify a commit.</p>
+<p>If two files are the same, their hashes are guaranteed to be the same</p>
+<div class="figure">
+<img src="git_structure.png" alt="" />
+<p class="caption">Commit, Tree &amp; Blob: Source: Greg Wilson, Datacamp</p>
+</div>
+<hr />
+</div>
+<div id="part-3---setting-up-git" class="section level1">
+<h1>Part 3 - Setting-up git</h1>
+<div id="system-global-local" class="section level2">
+<h2>System, global &amp; local</h2>
+<p>Setting up version control via git is a straight forward process, however, before setting up it is important to realize that the git setting are applied at three different levels.</p>
+<ul>
+<li>–system: settings for every user on a computer.</li>
+<li>–global: settings applied to every project.</li>
+<li>–local: settings for one specific project.</li>
+</ul>
+<p>Each level overrides the one above it, so local settings (per-project) take precedence over global settings (per-user), which in turn take precedence over system settings (for all users on the computer).</p>
+<p>Most of Git’s settings should be left as they are. However, there are two should be set on every computer. Name and email address. These are recorded in the log every time a commit is made, and are often used to identify the authors of a project. Use the following code to set the user name, email address and password.</p>
+<pre class="r"><code>git config --global user.name &quot;Your Name&quot;
+
+git config --global user.email &quot;your.email@domain.com&quot;
+
+git config --global password &quot;Password&quot;</code></pre>
+<p>Note: All git commands will have the word ‘git’ as a prefix to all the commands.</p>
+</div>
+<div id="creating-repository" class="section level2">
+<h2>Creating Repository</h2>
+<div id="new-project-on-local-machine" class="section level3">
+<h3>New Project (on local machine)</h3>
+<p>New project folder can be started from scratch. The other possibility is using an existing directory and apply version control to it. Both the methods are described below.</p>
+<p><em>1. New git project:</em> Entering the following command in the terminal will create a named directory, within which the .git folder will be created by default.</p>
+<pre class="r"><code>git init project_name</code></pre>
+<p><em>2. Existing folder:</em> In the path of the folder, use the following command to initiate version control for that folder. The command will create a folder .git.</p>
+<pre class="r"><code>git init</code></pre>
+</div>
+<div id="cloning-a-project" class="section level3">
+<h3>Cloning a project</h3>
+<p>Cloning a project means simply making a copy of an existing project; hosted on some server (either on the cloud or on-premises). For a basic comprehension, consider it like getting a copy of the files located on ‘DropBox’ or ‘Google Drive’ to local machine.</p>
+<p>To create a clone we need the address or URL of the hosting provider and following command is used for creating a copy.</p>
+<pre class="r"><code># Cloning a local project
+git clone /existing/project newprojectname
+
+# Cloning a hosted project
+git clone https://github.com/URL newprojectname</code></pre>
+<p>Note: URL for the hosted project can be easily obtained from the github or other hosting provider.</p>
+<p><em>Ignoring Files from Version Control</em></p>
+<p>Often temporary or intermediate files are created, which are not required to be saved. Git can ignore these files or group of files (based on a specified pattern) by creating a file called <em>.gitignore</em> in the root directory of the repository.</p>
+<p>.gitignore can contain a list of wildcard patterns that specify the files that Git should ignore.</p>
+<p><em>Deleting files</em></p>
+<p>To delete a file use the following command in the terminal.</p>
+<pre class="r"><code>git rm path/to/file</code></pre>
+<p><strong>Removing Untracked/Unsaved Files</strong></p>
+<p>These are the files which have been identified in .gitignore file.</p>
+<p>Git can clean up files that are not tracked. The command <strong>git clean -n</strong> will show a list of files that are in the repository, but whose history Git is not currently tracking. A similar command <strong>git clean -f</strong> will then delete those files. The command should be used with care. if deleted the files are gone for good.</p>
+<hr />
+</div>
+</div>
+</div>
+<div id="part-4---branching" class="section level1">
+<h1>Part 4 - Branching</h1>
+<p>Any file or document has to be shared with other stakeholders in the project, who make a copy of it and start making changes on it. Historically (and even now), I have tendency to make copy of such file as with suffix “rcvd_frm_person” and then all the modofications done by myself result in file being modified to “rcvd_frm_person_modi_aiq_date”. One can already see that this process gets quite challenging after only a couple of iterations.</p>
+<p>Branching is this exact process of making a copy of repository, wherein all the updates are made and later such changes are pushed to the main repository.</p>
+<p>Just to get a list of all the branches in the current repository use the following command in the terminal. The active branch will be represented by an asterik, with it’s name.</p>
+<pre class="r"><code>git branch</code></pre>
+<div id="setting-up-a-branch" class="section level2">
+<h2>Setting up a branch</h2>
+<p>By default, every Git repository has a branch called ‘main’ or ‘master’,</p>
+<p>Setting up a branch is quite easy and it can be accomplished by using the following command in the terminal. This is an efficient way to creating the branch and shift to that branch.</p>
+<pre class="r"><code># Method 1 - Creating a branch and switching to it (preferred option)
+
+git checkout -b branch_name</code></pre>
+<p>The above can also be accomplished by first creating the branch and then shifting to it. Because in involves two steps, the method stated above is preferable.</p>
+<pre class="r"><code># Method 2 - Creating a branch first and then switching to that branch
+
+# Create the branch
+git branch branch_name
+
+# Shift to the branch
+git checkout branch_name</code></pre>
+</div>
+<div id="setting-up-github" class="section level2">
+<h2>Setting up Github</h2>
+<p>Most of the times, a project or repository will be hosted on some external or cloud based service provider. Github, Bitbucket and other services provides the hosting services. In this blog we’ll focus on Github (although the process is quite similar for other service provider). Creating an account on Github is as simple as creating a new email address. Sign-up <a href="https://github.com/">here</a> on Github I trust that creating an account will not be challenging.</p>
+<p>Once the account has been created. Thereafter, simply create a new repository and get the URL for the repository. See the following snapshot for guidance.</p>
+<div class="figure">
+<img src="creating_repo_github.png" alt="" />
+<p class="caption">Creating New Repository, Github</p>
+</div>
+<div class="figure">
+<img src="github_repo_url.png" alt="" />
+<p class="caption">URL for, Hosted Repository</p>
+</div>
+</div>
+<div id="connecting-remotes" class="section level2">
+<h2>Connecting Remotes</h2>
+<p>Hosted version of repositories are termed as remote and identified with a name. Default host name is ‘origin’, however, any custom name is also possible. A remote is like a browser bookmark with a name and a URL.</p>
+<p>List of the remotes can be obtained using the command.</p>
+<pre class="r"><code>git remote
+# or 
+git remote -v</code></pre>
+<p>While located inside the repository in the local folder use the following command in the terminal to connect to the hosted repository. Any two Git repositories can be connected in this way, but in practice, almost always connect repositories that share some common ancestry.</p>
+<pre class="r"><code>git remote add remote_name URL/github.com</code></pre>
+<p>It is important to note that the above is not required if a repository has been cloned, since in that case the remote named ‘origin’ is already defined by default.</p>
+<p>In order to remove a remote already defined for a repository, use the following command.</p>
+<pre class="r"><code>git remote rm remote-name</code></pre>
+<hr />
+</div>
+</div>
+<div id="part-5---pull-add-commit-push-status" class="section level1">
+<h1>Part 5 - Pull, add, commit, push &amp; status</h1>
+<p>Following the previous steps, a git hub repository has been setup and connected to the remote host. Now we are ready to truly leverage the power of version control. However, before going into the specifics it useful to get acquainted with the following key terms. An attempt has been made to introduce these terms in an intuitive manner.</p>
+<ol style="list-style-type: decimal">
+<li><p><em>Pull</em> is an action of getting all the updates and changes from the remote into your local repository.</p></li>
+<li><p><em>Add</em> Adding is an action to put the updated local files in the staging area. The idea is to commit the added files.</p></li>
+<li><p><em>Committ</em> Action to formally record updates to a repository and identify it with message, explaining what changes had been made.</p></li>
+<li><p><em>Push</em> is an action of dispatching all the local changes to the remote; so that other working on the same project can pull those changes.</p></li>
+<li><p><em>Status</em> is the equivalent to what ‘ls’ command is to linux terminal. It basically lists down the current status of repository.</p></li>
+</ol>
+<div class="figure">
+<img src="staging_area.png" alt="" />
+<p class="caption">Adding &amp; Committing in Git</p>
+</div>
+<div id="addition-of-files-to-staging-area" class="section level2">
+<h2>Addition of files (to staging area)</h2>
+<p>To add a file to the staging area, use the following command</p>
+<pre class="r"><code># To add a specific file (in the following case file is filename.txt)
+git add filename.txt
+
+# To add all the files in one go
+git add .</code></pre>
+<p>If there is a mistake and the file has been staged, it can be un-staged using the following.</p>
+<pre class="r"><code># To undo additions from staged area, back to local drive
+git reset HEAD
+
+# Undo addition of a specific file from staged area, back to local drive
+git reset HEAD path/to/file</code></pre>
+<p>If however, the changes made to a file, which is not staged yet, has to reversed then use the following command in the terminal.</p>
+<pre class="r"><code># Reverse changes to a file
+git checkout -- path/to/file</code></pre>
+</div>
+<div id="commit-additions" class="section level2">
+<h2>Commit additions</h2>
+<p>It saves everything in the staging area as one unit. Upon committing, Git requires to enter a log message. Log message documents why the change was made and what changes have been made.</p>
+<p>By default, Git launches a text editor, however, to keep things simple, use the option -m “some message in quotes” in the terminal to enter a single-line message. If a commit message is accidentally mistyped then use –amend flag.</p>
+<pre class="r"><code># Commit the files/data in the hosted areas
+git commit -m &quot;An explanatory message for future reference&quot;
+
+# Correcting a commit message with --amend
+git commit --amend -m &quot;new message&quot;</code></pre>
+<p>It is possible to add files and commit changes at the same time, using one single command by adding the option -a</p>
+<pre class="r"><code>git commit -a -m &quot;message for the commit&quot;</code></pre>
+<hr />
+<p><strong>Good Practice For Commits</strong></p>
+<p><em>Writing a one-line log message with git commit -m “message”is good enough for very small changes, but collaborators (including your future-self) will appreciate more information about the commit and what changes were made. Good practice for commits is stated below, by means of an example.</em></p>
+<p><em>1) Don’t put all of the changes into the staging area at once. For example, suppose while adding a feature to file x, an error is spotted in another file y. Fix the change in y</em></p>
+<p><em>2) Since the changes to file y aren’t directly related to the work being done in x, there should be a commit for the fixed version of y.</em></p>
+<p><em>3) Thereafter, there should be a separate commit of the features added in the file x.</em></p>
+<hr />
+</div>
+<div id="push-to-repository" class="section level2">
+<h2>Push to repository</h2>
+<p>Git push command, pushes the changes made locally into a remote repository. The following command pushes the contents of branch named ‘branch-name’ into a branch with the same name in the remote repository associated with named ‘remote-name’.</p>
+<pre class="r"><code>git push remote-name branch-name
+
+# A practice example
+git push origin master # &#39;origin&#39; is the remote name and &#39;master&#39; is the branch name</code></pre>
+<p><em>It’s possible to use different branch names at your end and the remote’s end, but doing this quickly becomes confusing: it’s almost always better to use the same names for branches across repositories.</em></p>
+</div>
+<div id="pull-from-repository" class="section level2">
+<h2>Pull from repository</h2>
+<p>A typical workflow is to pull collaborators’ work from the remote repository so one have the latest version of everything. Then perform some updates yourself and push such changes back to the remote so that collaborators have access to it.</p>
+<p>Pulling changes is straightforward: with the following command, gets everything in a branch for a particular remote and merges it into the current branch of local repository.</p>
+<pre class="r"><code>git pull remote branch1
+
+# A practice example
+git pull origin master # &#39;origin&#39; is the remote name and &#39;master&#39; is the branch name</code></pre>
+<p><em>Git stops from pulling in changes from a remote repository when doing so might overwrite things done locally. The fix is simple: either commit local changes or revert them, and the pull again.</em></p>
+</div>
+<div id="status-of-repository" class="section level2">
+<h2>Status of repository</h2>
+<p>Status of the repository needs to be frequently referred while working. This is achieved by using following command, which displays a list of the files that have been modified since the last time changes are saved. It also shows files that are in this staging area.</p>
+<pre class="r"><code>git status</code></pre>
+<hr />
+</div>
+</div>
+<div id="part-6---changes-differences" class="section level1">
+<h1>Part 6 - Changes &amp; differences</h1>
+<div id="log-of-changes" class="section level2">
+<h2>Log of changes</h2>
+<p>Log is a list of all the commits i.e. updates and changes made to the files. Again to draw parallels it is similar to ‘ls’ command of the linux terminal, however, in this case it lists down all the commits made fo repository.</p>
+<pre class="r"><code>git log</code></pre>
+<p>Log entries are shown most recent first, and look like this:</p>
+<pre class="r"><code>commit 0430705487381195993bac9c21512ccfb511056d
+
+Author: Rep Loop &lt;test@test.com&gt;
+
+Date:   Wed Sep 20 13:42:26 2017 +0000
+
+Added year to report title.</code></pre>
+<p>The commit line displays a unique ID for the commit called a hash. The other lines tells who made the change, when, and what log message wrote for the change.</p>
+<p>A project’s entire log can be overwhelming, so it’s often useful to inspect only the changes to particular files or directories.</p>
+<p>Git log has additional options, which are very useful to see a visual representation of all the commits and how the tree structure has evolved. The following command is a bit log, however, after multiple uses it will become second nature.</p>
+<pre class="r"><code>git log --all --decorate --oneline --graph</code></pre>
+</div>
+<div id="changes-to-files" class="section level2">
+<h2>Changes to files</h2>
+<ul>
+<li><em>Changes made in the commit:</em> Using the git log first identify the commit of interest and identify it’s hash value. Based on the commit we are interested in, get the hash number (first 5 or 6 values) and then use the following to list the changes.</li>
+</ul>
+<pre class="r"><code>git show 6a43f</code></pre>
+<ul>
+<li>*Changes made to a particular file** git log displays the overall history of a project or file, but Git can give even more information. The command git annotate print, who made the last change to each line of a file and when.</li>
+</ul>
+<pre class="r"><code>git annotate file.txt</code></pre>
+</div>
+<div id="difference---working-directory-to-staged" class="section level2">
+<h2>Difference - working directory to staged</h2>
+<p>The section, demonstrates how to identify the difference in files.</p>
+<p>Scenario: Updates are made to file in local working director, however, such changes have not been staged. To ascertain the difference between the local file (unstaged to staged), use the following command.</p>
+<pre class="r"><code>git diff</code></pre>
+<p><em>Note: There is a possibility that we have added a file in the staged area (without committing) and later we have gone ahead and made further changes in the file in the local working directory.</em></p>
+<p><em>In such cases, my experience has been that ‘git diff’ will point out the difference from the HEAD (commit). This is based on my understanding and experience till now. In the future if there is any further insights, then I’ll update this blog post.</em></p>
+</div>
+<div id="difference---staged-to-head-commit" class="section level2">
+<h2>Difference - staged to HEAD (commit)</h2>
+<p>The following shows the difference or changes between the staging area and the HEAD (commit)</p>
+<pre class="r"><code>git diff --staged # This one is preferred by me
+# or
+git diff --cached
+# or
+git status -v</code></pre>
+</div>
+<div id="difference---working-directory-staged-to-head-commit" class="section level2">
+<h2>Difference - working directory &amp; staged to HEAD (commit)</h2>
+<p>The following shows the difference or changes between the working directory and the HEAD (commit)</p>
+<pre class="r"><code>git diff HEAD
+# or
+git status -vv</code></pre>
+</div>
+<div id="difference-between-commits" class="section level2">
+<h2>Difference between commits</h2>
+<p>To get the difference between two commits, use the following command</p>
+<pre class="r"><code>git diff 89282ax..237282sx</code></pre>
+</div>
+<div id="reading-the-git-diff-output" class="section level2">
+<h2>Reading the git diff output</h2>
+<p>A diff is a formatted display of the differences between two sets of files. Git displays diffs like this:</p>
+<pre class="r"><code>diff --git a/report.txt b/report.txt
+
+index e713b17..4c0742a 100644
+
+--- a/report.txt
+
++++ b/report.txt
+
+@@ -1,4 +1,4 @@
+
+-# Seasonal Dental Surgeries 2017-18
+
++# Seasonal Dental Surgeries (2017) 2017-18
+
+ TODO: write executive summary.</code></pre>
+<p>Following is the interpretation of the output of diff command.</p>
+<ul>
+<li>The command used to produce the output (in this case, diff –git). In it, a and b are placeholders meaning “the first version” and “the second version”.</li>
+<li>An index line showing keys into Git’s internal database of changes.</li>
+<li>— a/report.txt and +++ b/report.txt, indicate lines being removed are prefixed with -, while lines being added are prefixed with +.</li>
+<li>A line starting with @@ tells where the changes are being made. The pairs of numbers are start line,number of lines changed. Here, the diff output shows that 4 lines from line 1 are being removed and replaced with new lines.</li>
+<li>A line-by-line listing of the changes with - showing deletions and + showing additions. Lines that haven’t changed are sometimes shown before and after the ones that have in order to give context; when they appear, they don’t have either + or - in front of them.</li>
+</ul>
+</div>
+</div>
+<div id="part-7---merging-repositories" class="section level1">
+<h1>Part 7 - Merging repositories</h1>
+<p>Git represents a tree like structure wherein there is either a linear relationship or more complex relationship for three way merge. Both of these merger operations are defined below. However, once the merge has happened it is customary to delete the branch.</p>
+<div id="fast-forward-merge" class="section level2">
+<h2>Fast forward merge</h2>
+<p>This is a merge wherein the branch has moved forward as compared to the ‘main’ or the ‘master’ branch. The merge in this case is rather straight forward linear linkage, wherein the content of the ‘master’ or ‘main’ branch is updated with the changes/updates made in the branch.</p>
+<pre class="r"><code># Method 1 - Shift to the target branch and merge
+checkout destination_branch
+
+git merge origin_branch
+
+# Method - Directly merging
+git merge origin_branch destination_banch
+
+
+# Deleting the branch
+git branch -d origin_branch</code></pre>
+<p>In order to check which of the branches have been merged, use the following command in there terminal to list the branches which have been merged.</p>
+<pre class="r"><code>git branch --merged</code></pre>
+</div>
+<div id="way-merge" class="section level2">
+<h2>3 Way merge</h2>
+<p>3 way merge occurs, when the child branch has moved on and at the same time there have been changes in the master branch. Such type of scenarios are common for larger projects, where the child branch is used for some feature addition, however, the ‘master’ or the ‘main’ branch is also updated for addition bug fixes or feature updates.</p>
+<p>The code for the three way merge remains the same as stated above.</p>
+<p>For 3 way merges, Git looks at multiples commits: first the base commit from which the branches started from and then the last commits for all of the branches.</p>
+</div>
+<div id="managing-conflicts" class="section level2">
+<h2>Managing conflicts</h2>
+<p>Merging is a challenging process wherein we have to merge and resolve the conflict. The chronology of the steps is: merge first, then use the diff command to identify and resolve conflicts.</p>
+<ul>
+<li>Use the <em>git merge source destination</em> to merge two files. In this case, source is the branch on which one is working whereas destination is the branch on which we want to eventually update all the changes.</li>
+</ul>
+<p>In this case we will get notice that “Automatic merge failed; fix conflicts and them commit the result.”</p>
+<ul>
+<li><p>After merging use <em>git diff source destination</em> to identify all the differences.</p></li>
+<li><p>Then we have to manually adjust any conflicts that have been made using the nano text editor. The conflict is highlighted in the following format and it is user’s role to retain the correct modification from the following error.</p></li>
+</ul>
+<p>While making the edits, delete Git markers i.e. &lt;&lt;&lt;&lt;&lt;&lt;&lt;, ========= and &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; and the changes which have to be deleted.</p>
+<pre class="r"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; destination-branch-name
+...changes from the destination branch...
+=======
+...changes from the source branch...
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; source-branch-name</code></pre>
+<p>Once the conflicts have been resolved then we add and commit the updated file.</p>
+</div>
+</div>

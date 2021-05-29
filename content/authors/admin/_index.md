@@ -1,11 +1,14 @@
 ---
 authors:
 - admin
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: My interests inlcude data analysis, visualization, programming and public speaking.
 education:
   courses:
   - course: Certified Tidyverse Instructor
     institution: RStudio
+    year: 2020
+  - course: Certified Internal Auditor (CIA)
+    institution: Institute of Internal Auditor (IIA)
     year: 2020
   - course: Bootcamp, Data Scientist with R Track
     institution: DataCamp

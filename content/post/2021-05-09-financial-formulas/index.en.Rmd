@@ -1,0 +1,237 @@
+---
+title: Financial Formulas
+author: Ahsan Iftikhar
+date: '2021-05-09'
+slug: financial-formulas
+categories:
+  - Formulas
+tags:
+  - IFRS 9
+  - IAS 16
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-05-09T14:21:09+04:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+A ready reference for financial formulas, enables to look-up the formula and it's key input variables for ease in calculation and referece.
+
+Following key financial formulas are covered in this post.
+
+1. Rate of return conversion for different periodicity
+2. Discounting
+3. Loan Amortization
+4. Derivative related formulas
+
+*Note: This post is work in progress and other relevant formulas and details periodically updated.*
+
+***
+
+## 1. Rate Conversion
+
+### 1. Periodic Rate of Return
+
+Convert *annual rate* of return to either *monthly, quarterly or half-yearly* return
+
+$$monthly/quarterly/biannually = (1+r)^{\frac{1}{n}}-1$$
+Where
+
+-   r = annual rate
+-   n = shorter period for which rate has to be obtained. Thus
+    -   n = 12 for monthly
+    -   n = 2 for bi-annually
+    -   n = 4 for quarterly
+
+Examples
+
+### 2. Effective Annual Rate (EAR)
+
+First variation, when the payment is once in a year.
+
+This first formula gives the Effective Annual Interest Rate when compounding is done n number of times.
+
+$$EAR = (1+\frac{r}{n})^n -1$$
+Where
+
+* r = interest rate / compounding period
+* n = number of compounding periods
+    -   n = 12 for monthly
+    -   n = 2 for bi-annually
+    -   n = 4 for quarterly
+
+Examples
+
+Second variation, when the payment is n number of times in a year.
+
+This second formula give the effective interest rate per compounding period.
+
+$$R = (1+\frac{r}{n})^\frac{n}{p} -1$$
+Where
+
+-   p = No of payment periods per year
+-   r = nominal annual interest rate
+-   n = No. of compounding periods per year
+-   R = Rate per payment period
+
+Example
+
+
+***
+
+## 2. Discounting
+
+### 1. Present Value (PV)
+
+Describe present value.
+
+$$PV = (1 + r)^{-n}$$
+
+Where
+
+-   r = Annual rate of return
+
+Examples
+
+
+### 2. Present Value (compounded bi-annually, quarterly or monthly)
+
+In this case the formula is just the putting a negative in the exponent
+i.e. -nt
+
+$$PV = FV.(1+\frac{r}{n})^{-nt}$$
+
+Example
+
+### 3. Annuity Formula
+
+Describe annuity.
+
+$$A = P.[1 - \frac{(1+r)^{-n}}{r}]$$
+
+Examples
+
+
+### 3. Future value (compounded once a year)
+
+$$PV = (1 + r)^{n}$$
+
+Where
+
+-   r = Annual rate of return
+
+### 4. Future Value (compounded bi-annually, quarterly or monthly)
+
+Compounding Interest Rate (when compounding more frequent than on yearly basis)
+
+Examples are monthly, quarterly, bi-annually.
+
+$$FV = P.(1+\frac{r}{n})^{nt}$$ 
+
+Where 
+
+* r = Annual interest rate 
+* n = number times compounding is done on a yearly basis 
+* t = time in years
+* P = principle amount
+
+Examples
+
+
+## 3. Loan Realted
+
+### 1. Loan Amortization Method
+
+$$A = P\frac{r(1+r)^n}{(1+r)^n-1}$$ Where
+
+-   A = payment amount per period
+-   r = interest rate per period (it is important to calculate the
+    interest rate for the period)
+-   n = total number of payments or periods
+
+
+Example
+
+A individual is desirous of taking a loan for USD 50,000. He wishes to settle it in 5 years, with monthly payments. Bank's determines the interest rate of 14%, based on the risk profile of the individual. 
+Calculate the monthly instalments due from the individual?
+
+
+```{r}
+
+(1+0.14)^(1/12)-1
+
+p <- 50000
+r <- (1+0.14)^(1/12)-1
+inst_pmt <- 5*12
+
+loan_amort <- function(p, r, inst_pmt) {
+  
+  # calculating numerator
+  
+  numerator <- r*(1 + r)^inst_pmt
+  
+  denominaotor <- (1 + r)^inst_pmt - 1
+  
+  amount_per_period <- p*(numerator / denominaotor)
+  
+  return(amount_per_period)
+  
+}
+
+
+loan_amort(p = p, r = r, inst_pmt = inst_pmt)
+
+```
+
+
+
+
+
+
+## 4. Derivative Related Formulas
+
+
+### 1. Forward Rate
+
+$$F = S.ln^{(r_2-r_1).t}$$ Where
+
+-   F = Forward rate
+-   S = Spot rate (this is generally the closing rate for the date)
+-   $ln$ = Base of the natural logarithms (2.718)
+-   $r_2$ = interest free rate of the target currency in which the final
+    settlement will be done.
+-   $r_1$ = interest free rate of the host currency in which the
+    transaction is done
+-   t = Time to final settlement (in years)
+
+### 2. Fair Value of Derivative
+
+$$FV = A.(F-K).(e)^{-r_2.T}$$ Where
+
+-   FV = Fair value
+-   A = Amount in the host currency
+-   K = Strike price (the rate on which the final settlement will be
+    done)
+
+### 3. Discounting based Fair Value / Present Value of Derivative
+
+$$PV = A.exp(-r_2.T)$$ Where
+
+-   exp = exponent
+
+### 4. Floating Leg of Interest Rate Swaps
+
+$$PV_{floating} = F - \frac{F}{(1+\frac{r}{n})^{nt}}$$
+
+Where
+
+-   F = Face value or notional amount
+-   r = interest rate (decimal)
+-   n = number of times interest is compounded per year.
+-   t = time (in years)
+
