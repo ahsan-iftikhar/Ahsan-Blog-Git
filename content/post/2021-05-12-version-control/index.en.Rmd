@@ -1,5 +1,5 @@
 ---
-title: Version Control using Git & Github
+title: Version Control Using Git & Github
 author: Ahsan Iftikhar
 date: '2021-05-12'
 slug: version-control

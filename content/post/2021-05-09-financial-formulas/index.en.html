@@ -23,7 +23,7 @@ projects: []
 <script src="{{< blogdown/postref >}}index.en_files/header-attrs/header-attrs.js"></script>
 
 
-<p>A ready reference for financial formulas, enables to look-up the formula and it’s key input variables for ease in calculation and referece.</p>
+<p>A ready reference for financial formulas, enables to look-up the formula and it’s key input variables for ease in calculation and reference.</p>
 <p>Following key financial formulas are covered in this post.</p>
 <ol style="list-style-type: decimal">
 <li>Rate of return conversion for different periodicity</li>
@@ -31,14 +31,18 @@ projects: []
 <li>Loan Amortization</li>
 <li>Derivative related formulas</li>
 </ol>
-<p><em>Note: This post is work in progress and other relevant formulas and details periodically updated.</em></p>
+<p>Note:</p>
+<ul>
+<li>This post is work in progress and other relevant formulas and details periodically updated.</li>
+<li>All decimal figures are rounded up to 4 decimal places</li>
+</ul>
 <hr />
 <div id="rate-conversion" class="section level2">
 <h2>1. Rate Conversion</h2>
-<div id="periodic-rate-of-return" class="section level3">
-<h3>1. Periodic Rate of Return</h3>
-<p>Convert <em>annual rate</em> of return to either <em>monthly, quarterly or half-yearly</em> return</p>
-<p><span class="math display">\[monthly/quarterly/biannually = (1+r)^{\frac{1}{n}}-1\]</span>
+<div id="periodic-rate-of-return-prr" class="section level3">
+<h3>1. Periodic Rate of Return (PRR)</h3>
+<p>Annual rate is given and the objective is to convert to periodic rate i.e. convert <em>annual rate</em> of return to either <em>monthly, quarterly or half-yearly</em> return. This cannot be simply achieved by dividing the annual rate by the number of periods. The following formulas has to be used.</p>
+<p><span class="math display">\[monthly \space / \space quarterly \space / \space biannually = (1+r)^{\frac{1}{n}}-1\]</span>
 Where</p>
 <ul>
 <li>r = annual rate</li>
@@ -49,12 +53,21 @@ Where</p>
 <li>n = 4 for quarterly</li>
 </ul></li>
 </ul>
-<p>Examples</p>
+<p><strong>Examples</strong></p>
+<ol style="list-style-type: decimal">
+<li>Convert 17% annual rate to quarterly rate equivalent.</li>
+</ol>
+<ul>
+<li>Solution: Using the formula <span class="math inline">\((1+r)^{\frac{1}{n}}-1\)</span> wherein r = 0.17 and n = 4, the quarterly rate is 0.0400</li>
+</ul>
+<hr />
 </div>
 <div id="effective-annual-rate-ear" class="section level3">
 <h3>2. Effective Annual Rate (EAR)</h3>
-<p>First variation, when the payment is once in a year.</p>
-<p>This first formula gives the Effective Annual Interest Rate when compounding is done n number of times.</p>
+<ol style="list-style-type: decimal">
+<li><em>When compounding is done multiple times in a year and we are interested in finding EAR.</em></li>
+</ol>
+<p>Following formula gives the EAR when compounding is done n number of times.</p>
 <p><span class="math display">\[EAR = (1+\frac{r}{n})^n -1\]</span>
 Where</p>
 <ul>
@@ -66,8 +79,16 @@ Where</p>
 <li>n = 4 for quarterly</li>
 </ul></li>
 </ul>
-<p>Examples</p>
-<p>Second variation, when the payment is n number of times in a year.</p>
+<p><strong>Examples</strong></p>
+<ol style="list-style-type: decimal">
+<li>Annual rate of return is 17% which is compounded twice a year. Calculate EAR.</li>
+</ol>
+<ul>
+<li>Solution: Using the formula <span class="math inline">\((1+\frac{r}{n})^n -1\)</span> the EAR is 0.1772</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><em>Effective interest rate per compounding period (similar to PRR, however, in this case compounding is done multiple times in the year)</em></li>
+</ol>
 <p>This second formula give the effective interest rate per compounding period.</p>
 <p><span class="math display">\[R = (1+\frac{r}{n})^\frac{n}{p} -1\]</span>
 Where</p>
@@ -77,7 +98,13 @@ Where</p>
 <li>n = No. of compounding periods per year</li>
 <li>R = Rate per payment period</li>
 </ul>
-<p>Example</p>
+<p><strong>Example</strong></p>
+<ol style="list-style-type: decimal">
+<li>Annual rate of return is 17% which is compounded twice a year and payments are made quarterly. Calculate PRR.</li>
+</ol>
+<ul>
+<li>Solution: Using the formula <span class="math inline">\((1+\frac{r}{n})^\frac{n}{p} -1\)</span> the PRR (with multiple compoundings in a year) is 0.0416</li>
+</ul>
 <hr />
 </div>
 </div>
@@ -86,93 +113,99 @@ Where</p>
 <div id="present-value-pv" class="section level3">
 <h3>1. Present Value (PV)</h3>
 <p>Describe present value.</p>
-<p><span class="math display">\[PV = (1 + r)^{-n}\]</span></p>
+<p><span class="math display">\[PV = (1 + r)^{-t}\]</span></p>
 <p>Where</p>
 <ul>
 <li>r = Annual rate of return</li>
+<li>t = Number of years</li>
 </ul>
-<p>Examples</p>
+<p><strong>Examples</strong></p>
+<ol style="list-style-type: decimal">
+<li>Calculate the present value of 3 year maturity instrument when the rate per annum is 18%.</li>
+</ol>
+<ul>
+<li>Solution: Using the formula, <span class="math inline">\(PV = (1 + r)^{-t}\)</span> the PV discount value is 0.6086</li>
+</ul>
 </div>
-<div id="present-value-compounded-bi-annually-quarterly-or-monthly" class="section level3">
-<h3>2. Present Value (compounded bi-annually, quarterly or monthly)</h3>
+<div id="present-value-compounded-periodically" class="section level3">
+<h3>2. Present Value (compounded periodically)</h3>
 <p>In this case the formula is just the putting a negative in the exponent
 i.e. -nt</p>
-<p><span class="math display">\[PV = FV.(1+\frac{r}{n})^{-nt}\]</span></p>
-<p>Example</p>
+<p><span class="math display">\[PV \space factor = (1+\frac{r}{n})^{-nt}\]</span>
+Where</p>
+<ul>
+<li>r = Annual rate of return</li>
+<li>n = Number of times compounding is done per year</li>
+<li>t = Number of years</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Calculate the present value of 3 year maturity instrument when the rate per annum is 18% and compounding is done quarterly.</li>
+</ol>
+<ul>
+<li>Solution: Using the formula, <span class="math inline">\(PV = FV.(1+\frac{r}{n})^{-nt}\)</span> the PV discount value is 0.1121</li>
+</ul>
 </div>
 <div id="annuity-formula" class="section level3">
 <h3>3. Annuity Formula</h3>
 <p>Describe annuity.</p>
-<p><span class="math display">\[A = P.[1 - \frac{(1+r)^{-n}}{r}]\]</span></p>
-<p>Examples</p>
-</div>
-<div id="future-value-compounded-once-a-year" class="section level3">
-<h3>3. Future value (compounded once a year)</h3>
-<p><span class="math display">\[PV = (1 + r)^{n}\]</span></p>
+<p><span class="math display">\[Annuity \space factor = [1 - \frac{(1+r)^{-t}}{r}]\]</span></p>
 <p>Where</p>
 <ul>
 <li>r = Annual rate of return</li>
+<li>n = Number of times compounding is done per year</li>
+<li>t = Number of years</li>
 </ul>
 </div>
-<div id="future-value-compounded-bi-annually-quarterly-or-monthly" class="section level3">
-<h3>4. Future Value (compounded bi-annually, quarterly or monthly)</h3>
+<div id="future-value-compounded-once-a-year" class="section level3">
+<h3>3. Future value (compounded once a year)</h3>
+<p><span class="math display">\[PV = (1 + r)^{t}\]</span></p>
+<p>Where</p>
+<ul>
+<li>r = Annual rate of return</li>
+<li>t = Number of years</li>
+</ul>
+</div>
+<div id="future-value-compounded-periodically" class="section level3">
+<h3>4. Future Value (compounded periodically)</h3>
 <p>Compounding Interest Rate (when compounding more frequent than on yearly basis)</p>
 <p>Examples are monthly, quarterly, bi-annually.</p>
-<p><span class="math display">\[FV = P.(1+\frac{r}{n})^{nt}\]</span></p>
+<p><span class="math display">\[FV \space factor = (1+\frac{r}{n})^{nt}\]</span></p>
 <p>Where</p>
 <ul>
 <li>r = Annual interest rate</li>
 <li>n = number times compounding is done on a yearly basis</li>
 <li>t = time in years</li>
-<li>P = principle amount</li>
 </ul>
 <p>Examples</p>
 </div>
 </div>
-<div id="loan-realted" class="section level2">
-<h2>3. Loan Realted</h2>
+<div id="loan-related" class="section level2">
+<h2>3. Loan Related</h2>
 <div id="loan-amortization-method" class="section level3">
 <h3>1. Loan Amortization Method</h3>
 <p><span class="math display">\[A = P\frac{r(1+r)^n}{(1+r)^n-1}\]</span> Where</p>
 <ul>
 <li>A = payment amount per period</li>
-<li>r = interest rate per period (it is important to calculate the
-interest rate for the period)</li>
+<li>P = Value of borrowed capital</li>
+<li>r = interest rate per period (it is important to calculate the interest rate for the period. Thus simply divide the annual rate with the number of times payment has to be made per period)</li>
 <li>n = total number of payments or periods</li>
 </ul>
 <p>Example</p>
-<p>A individual is desirous of taking a loan for USD 50,000. He wishes to settle it in 5 years, with monthly payments. Bank’s determines the interest rate of 14%, based on the risk profile of the individual.
-Calculate the monthly instalments due from the individual?</p>
-<pre class="r"><code>(1+0.14)^(1/12)-1</code></pre>
-<pre><code>## [1] 0.01097885</code></pre>
-<pre class="r"><code>p &lt;- 50000
-r &lt;- (1+0.14)^(1/12)-1
-inst_pmt &lt;- 5*12
-
-loan_amort &lt;- function(p, r, inst_pmt) {
-  
-  # calculating numerator
-  
-  numerator &lt;- r*(1 + r)^inst_pmt
-  
-  denominaotor &lt;- (1 + r)^inst_pmt - 1
-  
-  amount_per_period &lt;- p*(numerator / denominaotor)
-  
-  return(amount_per_period)
-  
-}
-
-
-loan_amort(p = p, r = r, inst_pmt = inst_pmt)</code></pre>
-<pre><code>## [1] 1142.128</code></pre>
+<ol style="list-style-type: decimal">
+<li>A individual is desirous of taking a loan for USD 50,000. He wishes to settle it in 5 years, with monthly payments. Bank’s determines the interest rate of 14%, based on the risk profile of the individual.
+Calculate the monthly instalments due from the individual?</li>
+</ol>
+<ul>
+<li>Solution: Using the formula above <span class="math inline">\(A = P\frac{r(1+r)^n}{(1+r)^n-1}\)</span> and putting in the values the annuity payment per month is USD 1163.41</li>
+</ul>
 </div>
 </div>
 <div id="derivative-related-formulas" class="section level2">
 <h2>4. Derivative Related Formulas</h2>
 <div id="forward-rate" class="section level3">
 <h3>1. Forward Rate</h3>
-<p><span class="math display">\[F = S.ln^{(r_2-r_1).t}\]</span> Where</p>
+<p><span class="math display">\[F = S.ln^{(r_2-r_1).t}\]</span>
+Where</p>
 <ul>
 <li>F = Forward rate</li>
 <li>S = Spot rate (this is generally the closing rate for the date)</li>

@@ -20,7 +20,7 @@ image:
 projects: []
 ---
 
-A ready reference for financial formulas, enables to look-up the formula and it's key input variables for ease in calculation and referece.
+A ready reference for financial formulas, enables to look-up the formula and it's key input variables for ease in calculation and reference.
 
 Following key financial formulas are covered in this post.
 
@@ -29,17 +29,20 @@ Following key financial formulas are covered in this post.
 3. Loan Amortization
 4. Derivative related formulas
 
-*Note: This post is work in progress and other relevant formulas and details periodically updated.*
+Note: 
+
+* This post is work in progress and other relevant formulas and details periodically updated.
+* All decimal figures are rounded up to 4 decimal places
 
 ***
 
 ## 1. Rate Conversion
 
-### 1. Periodic Rate of Return
+### 1. Periodic Rate of Return (PRR)
 
-Convert *annual rate* of return to either *monthly, quarterly or half-yearly* return
+Annual rate is given and the objective is to convert to periodic rate i.e. convert *annual rate* of return to either *monthly, quarterly or half-yearly* return. This cannot be simply achieved by dividing the annual rate by the number of periods. The following formulas has to be used. 
 
-$$monthly/quarterly/biannually = (1+r)^{\frac{1}{n}}-1$$
+$$monthly \space / \space quarterly \space / \space biannually = (1+r)^{\frac{1}{n}}-1$$
 Where
 
 -   r = annual rate
@@ -48,13 +51,19 @@ Where
     -   n = 2 for bi-annually
     -   n = 4 for quarterly
 
-Examples
+**Examples**
+
+1) Convert 17% annual rate to quarterly rate equivalent.
+
+* Solution:  Using the formula $(1+r)^{\frac{1}{n}}-1$ wherein r = 0.17 and n = 4, the quarterly rate is 0.0400 
+
+***
 
 ### 2. Effective Annual Rate (EAR)
 
-First variation, when the payment is once in a year.
+1) *When compounding is done multiple times in a year and we are interested in finding EAR.*
 
-This first formula gives the Effective Annual Interest Rate when compounding is done n number of times.
+Following formula gives the EAR when compounding is done n number of times.
 
 $$EAR = (1+\frac{r}{n})^n -1$$
 Where
@@ -65,9 +74,14 @@ Where
     -   n = 2 for bi-annually
     -   n = 4 for quarterly
 
-Examples
+**Examples**
 
-Second variation, when the payment is n number of times in a year.
+1) Annual rate of return is 17% which is compounded twice a year. Calculate EAR.
+
+* Solution: Using the formula $(1+\frac{r}{n})^n -1$ the EAR is 0.1772
+
+
+2) *Effective interest rate per compounding period (similar to PRR, however, in this case compounding is done multiple times in the year)*
 
 This second formula give the effective interest rate per compounding period.
 
@@ -79,8 +93,11 @@ Where
 -   n = No. of compounding periods per year
 -   R = Rate per payment period
 
-Example
+**Example**
 
+1) Annual rate of return is 17% which is compounded twice a year and payments are made quarterly. Calculate PRR.
+
+* Solution: Using the formula $(1+\frac{r}{n})^\frac{n}{p} -1$ the PRR (with multiple compoundings in a year) is 0.0416
 
 ***
 
@@ -90,107 +107,93 @@ Example
 
 Describe present value.
 
-$$PV = (1 + r)^{-n}$$
+$$PV = (1 + r)^{-t}$$
 
 Where
 
--   r = Annual rate of return
+* r = Annual rate of return
+* t = Number of years
 
-Examples
+**Examples**
+
+1) Calculate the present value of 3 year maturity instrument when the rate per annum is 18%.
+
+* Solution: Using the formula, $PV = (1 + r)^{-t}$ the PV discount value is 0.6086
 
 
-### 2. Present Value (compounded bi-annually, quarterly or monthly)
+### 2. Present Value (compounded periodically)
 
 In this case the formula is just the putting a negative in the exponent
 i.e. -nt
 
-$$PV = FV.(1+\frac{r}{n})^{-nt}$$
+$$PV \space factor = (1+\frac{r}{n})^{-nt}$$
+Where
 
-Example
+* r = Annual rate of return
+* n = Number of times compounding is done per year
+* t = Number of years
+
+1) Calculate the present value of 3 year maturity instrument when the rate per annum is 18% and compounding is done quarterly.
+
+* Solution: Using the formula, $PV = FV.(1+\frac{r}{n})^{-nt}$ the PV discount value is 0.1121
 
 ### 3. Annuity Formula
 
 Describe annuity.
 
-$$A = P.[1 - \frac{(1+r)^{-n}}{r}]$$
-
-Examples
-
-
-### 3. Future value (compounded once a year)
-
-$$PV = (1 + r)^{n}$$
+$$Annuity \space factor = [1 - \frac{(1+r)^{-t}}{r}]$$
 
 Where
 
--   r = Annual rate of return
+* r = Annual rate of return
+* n = Number of times compounding is done per year
+* t = Number of years
 
-### 4. Future Value (compounded bi-annually, quarterly or monthly)
+### 3. Future value (compounded once a year)
+
+$$PV = (1 + r)^{t}$$
+
+Where
+
+* r = Annual rate of return
+* t = Number of years
+
+### 4. Future Value (compounded periodically)
 
 Compounding Interest Rate (when compounding more frequent than on yearly basis)
 
 Examples are monthly, quarterly, bi-annually.
 
-$$FV = P.(1+\frac{r}{n})^{nt}$$ 
+$$FV \space factor = (1+\frac{r}{n})^{nt}$$ 
 
 Where 
 
 * r = Annual interest rate 
 * n = number times compounding is done on a yearly basis 
 * t = time in years
-* P = principle amount
+
 
 Examples
 
 
-## 3. Loan Realted
+## 3. Loan Related
 
 ### 1. Loan Amortization Method
 
 $$A = P\frac{r(1+r)^n}{(1+r)^n-1}$$ Where
 
--   A = payment amount per period
--   r = interest rate per period (it is important to calculate the
-    interest rate for the period)
--   n = total number of payments or periods
+* A = payment amount per period
+* P = Value of borrowed capital
+* r = interest rate per period (it is important to calculate the interest rate for the period. Thus simply divide the annual rate with the number of times payment has to be made per period)
+* n = total number of payments or periods
 
 
 Example
 
-A individual is desirous of taking a loan for USD 50,000. He wishes to settle it in 5 years, with monthly payments. Bank's determines the interest rate of 14%, based on the risk profile of the individual. 
+1) A individual is desirous of taking a loan for USD 50,000. He wishes to settle it in 5 years, with monthly payments. Bank's determines the interest rate of 14%, based on the risk profile of the individual. 
 Calculate the monthly instalments due from the individual?
 
-
-```{r}
-
-(1+0.14)^(1/12)-1
-
-p <- 50000
-r <- (1+0.14)^(1/12)-1
-inst_pmt <- 5*12
-
-loan_amort <- function(p, r, inst_pmt) {
-  
-  # calculating numerator
-  
-  numerator <- r*(1 + r)^inst_pmt
-  
-  denominaotor <- (1 + r)^inst_pmt - 1
-  
-  amount_per_period <- p*(numerator / denominaotor)
-  
-  return(amount_per_period)
-  
-}
-
-
-loan_amort(p = p, r = r, inst_pmt = inst_pmt)
-
-```
-
-
-
-
+* Solution: Using the formula above $A = P\frac{r(1+r)^n}{(1+r)^n-1}$ and putting in the values the annuity payment per month is USD 1163.41
 
 
 ## 4. Derivative Related Formulas
@@ -198,7 +201,8 @@ loan_amort(p = p, r = r, inst_pmt = inst_pmt)
 
 ### 1. Forward Rate
 
-$$F = S.ln^{(r_2-r_1).t}$$ Where
+$$F = S.ln^{(r_2-r_1).t}$$ 
+Where
 
 -   F = Forward rate
 -   S = Spot rate (this is generally the closing rate for the date)
